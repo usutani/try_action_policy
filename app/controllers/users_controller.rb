@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :ensure_authenticated_user
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -8,6 +9,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    authenticate_user(params[:id])
+    redirect_to posts_url
   end
 
   # GET /users/new
