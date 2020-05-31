@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  attr_reader :current_user
   before_action :ensure_authenticated_user
 
   private
