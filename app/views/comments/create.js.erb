@@ -1,0 +1,6 @@
+(() => {
+  const el = document.getElementById('comments')
+  el.insertAdjacentHTML('beforeend', '<%=j render @comment %>')
+  const new_comment = document.getElementById('new_comment')
+  new_comment.outerHTML = '<%=j render "comments/new", post: @post %>'
+})()
