@@ -8,6 +8,11 @@
 admin = User.create! name: 'Administrator', role: 1
 foo = User.create! name: 'Foo'
 bar = User.create! name: 'Bar'
-Post.create! title: 'Admin post', content: "Administrator's post.", user: admin
-Post.create! title: 'Foo post', content: "foo's post.", user: foo
-Post.create! title: 'Bar post', content: "bar post.", user: bar
+p1 = Post.create! title: 'Admin post', content: "Administrator's post.", user: admin
+p2 = Post.create! title: 'Foo post', content: "foo's post.", user: foo
+p3 = Post.create! title: 'Bar post', content: "bar's post.", user: bar
+[p1, p2, p3].each do |post|
+  Comment.create! content: "Administrator's comment.", user: admin, post: post
+  Comment.create! content: "Foo's comment.", user: foo, post: post
+  Comment.create! content: "Bar's comment.", user: bar, post: post
+end
