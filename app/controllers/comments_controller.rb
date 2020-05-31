@@ -4,4 +4,9 @@ class CommentsController < ApplicationController
     @comment = Comment.create! content: params[:comment][:content],
                                post: @post, user: @current_user
   end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+  end
 end
