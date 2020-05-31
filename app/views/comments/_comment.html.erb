@@ -1,6 +1,8 @@
 <article id="comment-<%= comment.id %>">
   <h3>Comment by <%= comment.user.name %></h3>
   <p><%= comment.content %>
-    <%= link_to 'Destroy', post_comment_path(comment.post, comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+    <% if allowed_to?(:destroy?, comment) %>
+      <%= link_to 'Destroy', post_comment_path(comment.post, comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+    <% end %>
   </p>
 </article>
