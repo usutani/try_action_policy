@@ -8,3 +8,6 @@
 admin = User.create! name: 'Administrator', role: 1
 foo = User.create! name: 'Foo'
 bar = User.create! name: 'Bar'
+Post.create! title: 'Admin post', content: "Administrator's post.", user: admin
+Post.create! title: 'Foo post', content: "foo's post.", user: foo
+Post.create! title: 'Bar post', content: "bar post.", user: bar
